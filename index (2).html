@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>تسجيل فعاليات اللجنة الوطنية للجان العمالية</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+
+:root{
+  --green-1:#0fb36b;
+  --green-2:#0b8a56;
+}
+
+body{
+  font-family:'Tajawal',sans-serif;
+  background:#02161a;
+  color:#fff;
+}
+
+/* HERO (مشترك) */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:48px 20px;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url('hero-bg.png');
+  background-size:cover;
+  background-position:center;
+  filter:brightness(.55);
+  z-index:0;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(3,38,31,.4), rgba(2,38,31,.9));
+  z-index:1;
+}
+
+.wrap{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  width:100%;
+  text-align:center;
+  padding:40px 28px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.02);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.logo{
+  position:absolute;
+  top:22px;
+  right:22px;
+  z-index:5;
+}
+.logo img{height:80px}
+
+.hero-title h1{
+  font-size:40px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.lead{
+  margin:20px auto 30px;
+  font-weight:800;
+  opacity:.95;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  max-width:700px;
+  margin:0 auto;
+}
+
+.btn{
+  height:64px;
+  border-radius:14px;
+  font-weight:800;
+  font-size:16px;
+  color:#fff;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,var(--green-1),var(--green-2));
+  box-shadow:0 14px 30px rgba(6,60,44,.4);
+  transition:.2s;
+  cursor:pointer;
+}
+.btn:hover{transform:translateY(-6px)}
+
+.note{
+  margin-top:40px;
+  font-size:14px;
+  font-weight:800;
+  opacity:.9;
+}
+
+.hidden{display:none}
+
+.closed h2{
+  font-size:36px;
+  font-weight:900;
+  margin-bottom:16px;
+}
+
+.closed p{
+  font-size:18px;
+  font-weight:700;
+  line-height:1.9;
+  opacity:.95;
+}
+
+.back-btn{
+  margin-top:28px;
+  display:inline-block;
+  padding:14px 26px;
+  border-radius:12px;
+  background:linear-gradient(180deg,var(--green-1),var(--green-2));
+  font-weight:900;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero" id="mainPage">
+  <div class="logo"><img src="logo (1).png" alt="شعار اللجنة"></div>
+
+  <div class="wrap">
+    <div class="hero-title">
+      <h1>تسجيل فعاليات اللجنة الوطنية</h1>
+      <h1>الرياضية والثقافية</h1>
+    </div>
+
+    <p class="lead">
+      اختر نوع المشاركة لفتح الاستمارة المخصصة لكل فعالية.
+    </p>
+
+    <div class="buttons">
+      <div class="btn" onclick="openClosed()"> بطولة كرة القدم</div>
+      <div class="btn" onclick="openClosed()"> بطولة بلوت</div>
+      <div class="btn" onclick="openClosed()"> بطولة بادل</div>
+      <div class="btn" onclick="openClosed()"> بطولة الرسم الحر</div>
+      <div class="btn" onclick="openClosed()"> بطولة الشعر</div>
+    </div>
+
+  
+  </div>
+</div>
+
+
+<div class="hero hidden" id="closedPage">
+  <div class="wrap closed">
+    <h2>نعتذر </h2>
+    <p>
+      انتهت هذه الفعالية بنجاح ونشكر جميع من شارك وساهم في إنجاحها.
+      <br><br>
+      نعدكم بتجارب قادمة أكثر تميزًا.
+      <br>
+      انتظرونا في النسخة القادمة بإذن الله.
+    </p>
+
+    <div class="back-btn" onclick="goBack()">العودة للصفحة الرئيسية</div>
+  </div>
+</div>
+
+<script>
+function openClosed(){
+  document.getElementById('mainPage').classList.add('hidden');
+  document.getElementById('closedPage').classList.remove('hidden');
+}
+
+function goBack(){
+  document.getElementById('closedPage').classList.add('hidden');
+  document.getElementById('mainPage').classList.remove('hidden');
+}
+</script>
+
+</body>
+</html>
